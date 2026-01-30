@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AquaWash Laundry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- React CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function App() {
+      return (
+        <>
+          <header className="header">
+            <h1>AquaWash Laundry</h1>
+            <p>Fresh • Clean • Reliable</p>
+          </header>
+
+          <section className="section">
+            <h2>Our Services</h2>
+            <ul>
+              <li>Washing & Dry Cleaning</li>
+              <li>Steam Ironing</li>
+              <li>Express Laundry</li>
+              <li>Pickup & Delivery</li>
+            </ul>
+          </section>
+
+          <section className="section light">
+            <h2>Why Choose Us?</h2>
+            <p>
+              We provide high-quality laundry services with modern machines,
+              eco-friendly detergents, and on-time delivery.
+            </p>
+          </section>
+
+          <section className="section">
+            <h2>Contact Us</h2>
+            <p>📍 Your City, India</p>
+            <p>📞 <a href="tel:+919999999999">+91 99999 99999</a></p>
+            <p>💬 <a href="https://wa.me/919999999999" target="_blank">WhatsApp Us</a></p>
+          </section>
+
+          <footer className="footer">
+            <p>© {new Date().getFullYear()} AquaWash Laundry</p>
+          </footer>
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+
+  </script>
+</body>
+</html>
