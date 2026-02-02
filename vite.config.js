@@ -8,6 +8,18 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        // Ensure proper file extensions
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        // Ensure JS files have .js extension
+        manualChunks: undefined,
+      },
+    },
+    // Ensure proper MIME types
+    assetsInlineLimit: 4096,
   },
 })
 
