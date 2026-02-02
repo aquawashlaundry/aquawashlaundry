@@ -1,65 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>AquaWash Laundry</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- React CDN -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
-
-  <div id="root"></div>
-
-  <script type="text/babel">
-
-    function App() {
-      return (
-        <>
-          <header className="header">
-            <h1>AquaWash Laundry</h1>
-            <p>Fresh • Clean • Reliable</p>
-          </header>
-
-          <section className="section">
-            <h2>Our Services</h2>
-            <ul>
-              <li>Washing & Dry Cleaning</li>
-              <li>Steam Ironing</li>
-              <li>Express Laundry</li>
-              <li>Pickup & Delivery</li>
-            </ul>
-          </section>
-
-          <section className="section light">
-            <h2>Why Choose Us?</h2>
-            <p>
-              We provide high-quality laundry services with modern machines,
-              eco-friendly detergents, and on-time delivery.
-            </p>
-          </section>
-
-          <section className="section">
-            <h2>Contact Us</h2>
-            <p>📍 Your City, India</p>
-            <p>📞 <a href="tel:+919999999999">+91 99999 99999</a></p>
-            <p>💬 <a href="https://wa.me/919999999999" target="_blank">WhatsApp Us</a></p>
-          </section>
-
-          <footer className="footer">
-            <p>© {new Date().getFullYear()} AquaWash Laundry</p>
-          </footer>
-        </>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App />);
-
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>AquaWash Laundry - Fresh. Clean. Reliable Laundry Service</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
