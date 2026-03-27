@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from "react";
 
 const Map = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
-  
-  const address = 'Shop no.11, Asthaa Homes, New Vasna, Vishala, Ahmedabad';
-  const encodedAddress = encodeURIComponent(address);
-  
-  // Google Maps share link for directions
-  const directionsLink = 'https://maps.app.goo.gl/1CPx7Remr3zCd2x48';
-  
-  // Google Maps embed URL with marker - using the address query which automatically shows a marker
-  const mapUrl = `https://www.google.com/maps?q=${encodedAddress}&output=embed&z=16`;
+
+  const businessName = "AquaWash Laundry";
+  const address =
+    "Shop no.11, Asthaa Homes, New Vasna, Vishala, Ahmedabad";
+
+  const placeQuery = `${businessName}, ${address}`;
+  const encodedPlaceQuery = encodeURIComponent(placeQuery);
+  const encodedAddressOnly = encodeURIComponent(address);
+
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY ?? "";
+
+  const mapUrl = useMemo(() => {
+    if (apiKey) {
+      return `https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(
+        apiKey
+      )}&q=${encodedPlaceQuery}&zoom=16`;
+    }
+    return `https://www.google.com/maps?q=${encodedAddressOnly}&output=embed&z=16`;
+  }, [apiKey, encodedPlaceQuery, encodedAddressOnly]);
+
+  const directionsLink = "https://maps.app.goo.gl/1CPx7Remr3zCd2x48";
 
   return (
     <section className="py-16 md:py-24 px-4 bg-white">
@@ -29,20 +41,21 @@ const Map = () => {
         </div>
 
         <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative">
-          {/* Location Marker Badge */}
           <div className="absolute top-4 left-4 z-10 bg-white rounded-lg px-4 py-2 shadow-lg flex items-center gap-2">
             <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-gray-800">AquaWash Laundry</span>
+            <span className="text-sm font-semibold text-gray-800">
+              {businessName}
+            </span>
           </div>
-          
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+
+          <div className="relative w-full aspect-video">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
               src={mapUrl}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="AquaWash Laundry Location"
+              title={`${businessName} Location`}
               onLoad={() => setMapLoaded(true)}
             ></iframe>
             {!mapLoaded && (
@@ -73,4 +86,3 @@ const Map = () => {
 };
 
 export default Map;
-

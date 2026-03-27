@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const phoneNumber = '9726559892';
@@ -12,6 +13,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
+            <img
+              src={logo}
+              alt="AquaWash Laundry"
+              className="h-20 w-auto object-contain mb-4 brightness-0 invert"
+            />
             <h3 className="text-2xl font-bold text-white mb-4">AquaWash Laundry</h3>
             <p className="text-gray-400 mb-4">
               Fresh. Clean. Reliable Laundry Service
